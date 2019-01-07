@@ -1,0 +1,55 @@
+<div class="container">
+    <h1>
+        Books
+    </h1>
+    <table class="table table-bordered table-inverse">
+       <tr>
+        <th>Title of the book</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th class="text-right">Year</th>
+      </tr>
+      <tr *ngFor="let book of books">
+        <td>
+          {{book.title}}
+        </td>
+        <td>
+          <div *ngFor="let author of book.authors">
+              <a [routerLink]="['/admin/viewauthor',author.authorId]">{{author.name}}{{" "}}{{author.surname}}</a>
+          </div>
+        </td> 
+        <td>
+          {{book.genre}}
+        </td>
+        <td class="text-right">
+          {{book.year}}
+        </td>
+      </tr>
+    </table>
+
+        <h1>
+            Authors
+        </h1>
+    <table class="table table-bordered table-inverse">
+        
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Books</th>
+        </tr>
+        <tr *ngFor="let author of authors">
+          <td>
+            {{author.name}}
+          </td>
+          <td>
+            {{author.surname}}
+          </td>
+          <td>
+              <div *ngFor="let book of author.books">
+                  <a [routerLink]="['/admin/view',book.bookId]">{{book.title}}</a>
+              </div>
+          </td> 
+                    
+        </tr>
+      </table>
+  </div>

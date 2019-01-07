@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+      <a class="btn btn=primary" routerLink="/admin">Back to List</a>
+    </div>
+    
+      <h1>
+          Selected author 
+      </h1>
+      <table class="table table-bordered table-inverse">
+         <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>List of books</th>
+         </tr>
+        
+          <td>
+            {{authorReg.name}}
+          </td>
+          <td>
+            {{authorReg.surname}}
+          </td>
+          <td>
+            <div *ngFor="let book of authorReg.books">
+                {{book.title}}
+            </div>
+          </td> 
+                  
+      </table>
+</div>
